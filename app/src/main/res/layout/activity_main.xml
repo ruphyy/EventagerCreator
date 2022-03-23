@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#26304C"
+    tools:context=".MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="411dp"
+            android:layout_height="732dp"
+            android:background="#26304C">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bnbcorner"
+        android:elevation="8dp"
+        app:itemIconTint="@drawable/color_selector"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/menu_nav" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/homeView"
+        android:layout_width="412dp"
+        android:layout_height="728dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="#26304C"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/creatorEvents"
+                android:layout_width="391dp"
+                android:layout_height="246dp"
+                android:layout_marginBottom="55dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/statisticView"
+                app:layout_constraintVertical_bias="0.367" />
+
+            <TextView
+                android:id="@+id/listTopic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="Erstellte Events"
+                android:textColor="#E4E4E4"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/statisticView" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/statisticView"
+                android:layout_width="375dp"
+                android:layout_height="170dp"
+                android:layout_marginTop="75dp"
+                app:cardBackgroundColor="#1E59F5"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/levelImage"
+                        android:layout_width="67dp"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="48dp"
+                        android:contentDescription="LevelIcon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.438"
+                        app:layout_constraintStart_toEndOf="@+id/secondBorder"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/company" />
+
+                    <View
+                        android:id="@+id/secondBorder"
+                        android:layout_width="1dp"
+                        android:layout_height="134dp"
+                        android:layout_marginStart="250dp"
+                        android:layout_marginTop="18dp"
+                        android:background="#FFFFFF"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView45"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="38dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="44dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Level"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/secondBorder"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/eventsOngoing"
+                        android:layout_width="87dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="19dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Aktuelle Events"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toStartOf="@+id/secondBorder"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/firstBorder"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/firstBorder"
+                        android:layout_width="1dp"
+                        android:layout_height="134dp"
+                        android:layout_marginStart="125dp"
+                        android:layout_marginTop="18dp"
+                        android:background="#FFFFFF"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="68dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="37dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Follower"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toStartOf="@+id/firstBorder"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/levelText"
+                        android:layout_width="68dp"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="28dp"
+                        android:text="Company"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/levelImage"
+                        app:layout_constraintStart_toStartOf="@+id/levelImage"
+                        app:layout_constraintTop_toBottomOf="@+id/levelImage" />
+
+                    <TextView
+                        android:id="@+id/eventCount"
+                        android:layout_width="68dp"
+                        android:layout_height="17dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="28dp"
+                        android:gravity="center"
+                        android:text="3 von 15"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+                        app:layout_constraintHorizontal_bias="0.459"
+                        app:layout_constraintStart_toStartOf="@+id/imageView6"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <TextView
+                        android:id="@+id/followerCount"
+                        android:layout_width="67dp"
+                        android:layout_height="17dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="28dp"
+                        android:text="27 (9%)"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/followImage"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/followImage"
+                        app:layout_constraintTop_toBottomOf="@+id/followImage" />
+
+                    <ImageView
+                        android:id="@+id/followImage"
+                        android:layout_width="67dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="32dp"
+                        android:contentDescription="FollowerIcon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView25"
+                        app:srcCompat="@drawable/man" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="68dp"
+                        android:layout_height="58dp"
+                        android:layout_marginTop="8dp"
+                        android:contentDescription="EventListIcon"
+                        app:layout_constraintEnd_toEndOf="@+id/eventsOngoing"
+                        app:layout_constraintStart_toStartOf="@+id/eventsOngoing"
+                        app:layout_constraintTop_toBottomOf="@+id/eventsOngoing"
+                        app:srcCompat="@drawable/list" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <View
+                android:id="@+id/firtTopicView"
+                android:layout_width="4dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/cornerviews"
+                app:layout_constraintEnd_toStartOf="@+id/helloView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/secondTopicView"
+                android:layout_width="4dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="268dp"
+                android:background="@drawable/cornerviews"
+                app:layout_constraintEnd_toStartOf="@+id/listTopic"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/helloView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Hallo "
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/usernameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="sans-serif-light"
+                android:text="ruphyy,"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/helloView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/emptyView"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Du hast noch keine Events erstellt."
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/listTopic"
+                app:layout_constraintVertical_bias="0.195" />
+
+            <Button
+                android:id="@+id/newEvent"
+                android:layout_width="210dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/corner"
+                android:text="Event hinzufügen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/creatorEvents" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
