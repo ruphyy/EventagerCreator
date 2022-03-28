@@ -20,6 +20,78 @@
             android:layout_height="732dp"
             android:background="#26304C">
 
+            <TextView
+                android:id="@+id/settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Einstellungen"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/settings2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="452dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Informationen"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/firtTopicView"
+                android:layout_width="4dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/cornerviews"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/firtTopicView2"
+                android:layout_width="4dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="452dp"
+                android:background="@drawable/cornerviews"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/infoLevel"
+                android:layout_width="205dp"
+                android:layout_height="31dp"
+                android:layout_marginTop="496dp"
+                android:text="Welche Level gibt es?"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.067"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contactSupport"
+                android:layout_width="205dp"
+                android:layout_height="31dp"
+                android:layout_marginTop="532dp"
+                android:text="Kontakt aufnehmen"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.067"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -253,7 +325,7 @@
 
 
             <View
-                android:id="@+id/firtTopicView"
+                android:id="@+id/firstTopicView"
                 android:layout_width="4dp"
                 android:layout_height="33dp"
                 android:layout_marginStart="16dp"
