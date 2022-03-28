@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+    // Note: String-Array in Arrays kein "'"!
+    // TODO: Mehr Abstand zwischen Überschrift "erstellte Events" und "NoEvent-Error" (mehr zentriert)
     // TODO: Datenbankverknüpfung und Abruf der Daten
     // TODO: NavigationBar state_selected Farben ändern
 
@@ -101,5 +103,4 @@ public class MainActivity extends AppCompatActivity {
         result = Math.round(result * 100.0) / 100.0;
         return result;
     }
-
 }

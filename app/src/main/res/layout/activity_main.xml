@@ -68,7 +68,7 @@
 
             <TextView
                 android:id="@+id/infoLevel"
-                android:layout_width="205dp"
+                android:layout_width="wrap_content"
                 android:layout_height="31dp"
                 android:layout_marginTop="496dp"
                 android:text="Welche Level gibt es?"
@@ -81,7 +81,7 @@
 
             <TextView
                 android:id="@+id/contactSupport"
-                android:layout_width="205dp"
+                android:layout_width="wrap_content"
                 android:layout_height="31dp"
                 android:layout_marginTop="532dp"
                 android:text="Kontakt aufnehmen"
