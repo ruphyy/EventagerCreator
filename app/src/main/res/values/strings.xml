@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">EventagerCreator</string>
-    <string-array name="events">
-    </string-array>
+    <string-array name="events"></string-array>
     <string-array name="events1">
         <item>DayNNight</item>
         <item>Rutenfest</item>

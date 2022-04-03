@@ -22,12 +22,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView emptyView, contactSupport;
-    CardView homeView;
-    RecyclerView recyclerView;
-    String s1[], s2[];
-    int[] images = {R.drawable.p,R.drawable.f,R.drawable.e,R.drawable.p};
-    BottomNavigationView navigationView;
+    private TextView emptyView, contactSupport;
+    private CardView homeView;
+    private RecyclerView recyclerView;
+    private String s1[], s2[];
+    private int[] images = {R.drawable.p,R.drawable.f,R.drawable.e,R.drawable.p};
+    private BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Wird benutzt um prozentualen Anteil von Follower
-    public double percent(int x, int y) { // X von Y (= Insg.)
+    public double percent(double x, double y) { // X von Y (= Insg.)
         double result;
 
         // 1 % berechnen
@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         result = y*x;
         // Auf 2 Nachkommastellen runden
         result = Math.round(result * 100.0) / 100.0;
+
         return result;
     }
 }

@@ -83,12 +83,25 @@
                 android:id="@+id/contactSupport"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
-                android:layout_marginTop="532dp"
+                android:layout_marginTop="572dp"
                 android:text="Kontakt aufnehmen"
                 android:textAlignment="textStart"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.067"
+                app:layout_constraintHorizontal_bias="0.063"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_marginTop="536dp"
+                android:text="Hier soll eine Frage hin?"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.075"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -115,7 +128,6 @@
         android:id="@+id/homeView"
         android:layout_width="412dp"
         android:layout_height="728dp"
-        android:visibility="gone"
         app:cardBackgroundColor="#26304C"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -288,7 +300,7 @@
                         android:layout_height="17dp"
                         android:layout_marginTop="3dp"
                         android:layout_marginBottom="28dp"
-                        android:text="27 (9%)"
+                        android:text="167 (9%)"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp"
@@ -391,7 +403,7 @@
                 app:layout_constraintVertical_bias="0.195" />
 
             <Button
-                android:id="@+id/newEvent"
+                android:id="@+id/submitLogin"
                 android:layout_width="210dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
