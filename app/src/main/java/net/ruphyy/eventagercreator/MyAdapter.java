@@ -17,11 +17,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     int images[];
     Context context;
 
-    public MyAdapter(Context context,String s1[], String s2[], int images[] ){
+    public MyAdapter(Context context, String s1[], String s2[], int images[] ){
         this.context = context;
         this.s1 = s1;
         this.s2 = s2;
         this.images = images;
+        for (int s : images)
+            System.out.println(s);
     }
 
     @NonNull
@@ -39,10 +41,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.myText1.setText(s1[position]);
         holder.myText2.setText(s2[position]);
         holder.myImage.setImageResource(images[position]);
+
         holder.deleteEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Delete Event from Database
+
+                // TODO: dbManager.eventdelete(context);
             }
         });
 

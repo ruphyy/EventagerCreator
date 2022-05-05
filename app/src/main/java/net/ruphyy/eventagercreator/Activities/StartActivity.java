@@ -1,4 +1,4 @@
-package net.ruphyy.eventagercreator;
+package net.ruphyy.eventagercreator.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +17,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import net.ruphyy.eventagercreator.Database.DbManager;
+import net.ruphyy.eventagercreator.R;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -32,6 +35,7 @@ public class StartActivity extends AppCompatActivity {
     private Button submitBtn;
 
     // Variables for Login-Cooldown
+    private static MessageDigest md;
     long time = System.currentTimeMillis();
     long lastTry = 0;
     long coolDownTime = 3000;
@@ -47,14 +51,7 @@ public class StartActivity extends AppCompatActivity {
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                boolean cd = cooldown();
-                if(cd == true) {
-                    login();
-                } else {
-                    Toast.makeText(StartActivity.this, "Bitte warten Sie kurz bevor Sie es erneut versuchen!", Toast.LENGTH_SHORT).show();
-                }
-            }
+            public void onClick(View view) { DbManager.login(StartActivity.this, textUsername, textPassword); }
         });
     }
 
@@ -63,42 +60,43 @@ public class StartActivity extends AppCompatActivity {
         username = textUsername.getText().toString().trim();
         password = textPassword.getText().toString().trim();
 
-        // TODO: Testen ob " " funktioniert..
         if (!password.equals("") || !username.equals("")) {
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    response = response.trim();
-                    System.out.println(response);
-                    if (response.equals("2")) {
-                        forwardMain();
-                        Toast.makeText(StartActivity.this, "Einloggen war erfolgreich!", Toast.LENGTH_SHORT).show();
-                    } else if(response.equals("1")) {
-                        Toast.makeText(StartActivity.this, "Dies ist kein Creator Account. Weitere Informationen finden Sie im Fußbereich der Seite!", Toast.LENGTH_SHORT).show();
-                    } else if(response.equals("0")) {
-                        Toast.makeText(StartActivity.this, "Keinen Account gefunden.", Toast.LENGTH_SHORT).show();
+            if(cooldown()) {
+                // TODO: password = cryptWithMD5(password);
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        response = response.trim();
+                        if (response.equals("2")) {
+                            Toast.makeText(StartActivity.this, "Einloggen war erfolgreich!", Toast.LENGTH_SHORT).show();
+                        } else if (response.equals("1")) {
+                            Toast.makeText(StartActivity.this, "Dies ist kein Creator Account. Weitere Informationen finden Sie im Fußbereich der Seite!", Toast.LENGTH_SHORT).show();
+                        } else if (response.equals("0")) {
+                            Toast.makeText(StartActivity.this, "Keinen Account gefunden.", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(StartActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
-                }
-            }) {
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> data = new HashMap<>();
-                    data.put("password", password);
-                    data.put("username", username);
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(StartActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> data = new HashMap<>();
+                        data.put("password", password);
+                        data.put("username", username);
 
-                    return data;
-                }
-            };
-            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-            requestQueue.add(stringRequest);
-
+                        return data;
+                    }
+                };
+                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                requestQueue.add(stringRequest);
+            } else {
+                Toast.makeText(StartActivity.this, "Warte ein paar Sekunden bevor du es erneut versuchst!", Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Toast.makeText(StartActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(StartActivity.this, "Alle Felder müssen ausgefüllt sein!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -116,7 +114,6 @@ public class StartActivity extends AppCompatActivity {
             return false;
         }
     }
-    private static MessageDigest md;
 
     public static String cryptWithMD5(String pass){
         try {

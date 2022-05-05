@@ -1,10 +1,12 @@
-package net.ruphyy.eventagercreator;
+package net.ruphyy.eventagercreator.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import net.ruphyy.eventagercreator.R;
 
 public class SplashActivity extends AppCompatActivity {
 
