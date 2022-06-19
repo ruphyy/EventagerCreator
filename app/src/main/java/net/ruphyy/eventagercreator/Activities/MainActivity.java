@@ -3,12 +3,10 @@ package net.ruphyy.eventagercreator.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.media.metrics.Event;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -18,8 +16,8 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import net.ruphyy.eventagercreator.EventManager;
-import net.ruphyy.eventagercreator.MyAdapter;
+import net.ruphyy.eventagercreator.Database.DbManager;
+import net.ruphyy.eventagercreator.Dialog.EventCreate;
 import net.ruphyy.eventagercreator.R;
 
 // Note: String-Array in Arrays kein "'"!
@@ -29,19 +27,35 @@ import net.ruphyy.eventagercreator.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static int getUserid() {
+        return userid;
+    }
+
+    public static void setUserid(int userid) {
+        MainActivity.userid = userid;
+    }
+
+    // Publike User-ID (von überall abrufbar per Getter)
+    private static int userid;
+
     private TextView emptyView, contactSupport;
     private CardView homeView, settingsView, createEventDialog;
     private Button createEvent;
     private RecyclerView recyclerView;
     private String s1[], s2[];
-    private int[] images = {R.drawable.p,R.drawable.f,R.drawable.e,R.drawable.p};
+    // Vorgefertigte Bilder (Party, Festival, Event)
+    private int[] images = {R.drawable.p,R.drawable.f,R.drawable.e};
     private BottomNavigationView navigationView;
     private ConstraintLayout homepage;
+
+    private int eventcount = 15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         // Find ViewId's
         recyclerView = findViewById(R.id.creatorEvents);
@@ -57,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Verstecke Settings Card damit man die Buttons im "Hintergrund" nicht klicken kann
         settingsView.setVisibility(View.GONE);
-        createEventDialog.setVisibility(View.GONE);
 
         createEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createEvent();
+                Intent i = new Intent(MainActivity.this, EventCreate.class);
+                startActivity(i);
             }
         });
 
@@ -83,24 +97,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        System.out.println("HIER STEHT S1" + s1);
-        System.out.println("HIER STEHT S2" + s2);
-        MyAdapter ma = new MyAdapter(this, s1, s2, images);
-        recyclerView.setAdapter(ma);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         /* Wenn User keine Events erstellt hat
         recyclerView (Liste) verstecken und TextView
-        mit Hinweis anzeigen lassen.
+        mit Hinweis anzeigen lassen, dass keine
+        Events erstellt wurden.
          */
-        if (s1.length == 0) {
+
+        // Anzahl an erstellten Events abrufen
+        int userEvents = DbManager.getEventCount(userid);
+
+
+        if (userEvents == 0) {
             recyclerView.setVisibility(View.GONE);
             emptyView.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
+            for(int x = 0; userEvents > x; x++) {
+
+            }
             recyclerView.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
         }
+
+        // Navigationsleiste
         navigationView.setOnNavigationItemSelectedListener
                 ((BottomNavigationView.OnNavigationItemSelectedListener) item -> {
                     switch (item.getItemId()) {
@@ -117,10 +135,12 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void createEvent() {
+    public void test() {
+        Events[] event = new Events[eventcount];
 
-        
-
+        for(int x = 0; x>eventcount; x++) {
+            event[x] = new Events("", "", 12, 22,"", 'P');
+        }
     }
 
     // Für prozentualen Anteil von Followern

@@ -1,6 +1,9 @@
 package net.ruphyy.eventagercreator;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import net.ruphyy.eventagercreator.Activities.MainActivity;
+import net.ruphyy.eventagercreator.Dialog.EventCreate;
+import net.ruphyy.eventagercreator.Dialog.EventEdit;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
@@ -45,15 +52,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.deleteEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                // TODO: dbManager.eventdelete(context);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setMessage("Test")
+                        .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // START THE GAME!
+                            }
+                        })
+                        .setNegativeButton("CancelAmk", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                            }
+                        });
             }
         });
 
         holder.editEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Edit Event from Database
+                Intent i = new Intent(context, EventEdit.class);
+                context.startActivity(i);
             }
         });
 

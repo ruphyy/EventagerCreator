@@ -3,19 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/drawable/bg_window.xml" value="0.27" />
         <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/drawable/bnbcolorselector.xml" value="0.27" />
         <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/drawable/bnbcorner.xml" value="1.0" />
         <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/drawable/circle.xml" value="0.2075" />
         <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/drawable/color_selector.xml" value="0.27" />
         <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/drawable/corner.xml" value="0.27" />
         <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/drawable/cornerviews.xml" value="0.27" />
-        <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/layout/activity_main.xml" value="0.31862745098039214" />
+        <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/layout/activity_start.xml" value="0.33" />
-        <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/layout/event_creator.xml" value="0.22" />
         <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/layout/item_event.xml" value="0.1884498480243161" />
         <entry key="..\:/Development/Projects/EventagerCreator/app/src/main/res/menu/menu_nav.xml" value="0.29010416666666666" />
+        <entry key="..\:/Users/andre/StudioProjects/EventagerCreator/app/src/main/res/layout/activity_event_create.xml" value="0.16" />
+        <entry key="..\:/Users/andre/StudioProjects/EventagerCreator/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/andre/StudioProjects/EventagerCreator/app/src/main/res/layout/activity_start.xml" value="0.2" />
+        <entry key="..\:/Users/andre/StudioProjects/EventagerCreator/app/src/main/res/layout/create_dialog.xml" value="0.264" />
+        <entry key="..\:/Users/andre/StudioProjects/EventagerCreator/app/src/main/res/layout/event_creator.xml" value="0.18289473684210528" />
       </map>
     </option>
   </component>

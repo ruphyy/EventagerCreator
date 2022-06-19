@@ -29,9 +29,9 @@ import java.util.logging.Logger;
 
 public class StartActivity extends AppCompatActivity {
 
-    private String URL ="https://eventager.de/login/login.php";
     private EditText textUsername, textPassword;
-    private String username, password;
+    private String password, username;
+    public static int userid; // TODO: Variable befüllen :)
     private Button submitBtn;
 
     // Variables for Login-Cooldown
@@ -44,6 +44,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
         password = username = "";
         textUsername = findViewById(R.id.editUsername);
         textPassword = findViewById(R.id.editPassword);
@@ -53,51 +54,6 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) { DbManager.login(StartActivity.this, textUsername, textPassword); }
         });
-    }
-
-    public void login() {
-
-        username = textUsername.getText().toString().trim();
-        password = textPassword.getText().toString().trim();
-
-        if (!password.equals("") || !username.equals("")) {
-            if(cooldown()) {
-                // TODO: password = cryptWithMD5(password);
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        response = response.trim();
-                        if (response.equals("2")) {
-                            Toast.makeText(StartActivity.this, "Einloggen war erfolgreich!", Toast.LENGTH_SHORT).show();
-                        } else if (response.equals("1")) {
-                            Toast.makeText(StartActivity.this, "Dies ist kein Creator Account. Weitere Informationen finden Sie im Fußbereich der Seite!", Toast.LENGTH_SHORT).show();
-                        } else if (response.equals("0")) {
-                            Toast.makeText(StartActivity.this, "Keinen Account gefunden.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(StartActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
-                    }
-                }) {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> data = new HashMap<>();
-                        data.put("password", password);
-                        data.put("username", username);
-
-                        return data;
-                    }
-                };
-                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                requestQueue.add(stringRequest);
-            } else {
-                Toast.makeText(StartActivity.this, "Warte ein paar Sekunden bevor du es erneut versuchst!", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(StartActivity.this, "Alle Felder müssen ausgefüllt sein!", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public void forwardMain() {

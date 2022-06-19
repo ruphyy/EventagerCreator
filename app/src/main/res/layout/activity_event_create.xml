@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#26304C"
+    tools:context=".Dialog.EventCreate">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/createEventDialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#364368"
+        app:barrierMargin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/eventTopic"
+                android:layout_width="221dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="24dp"
+                android:hint="Überschrift"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/eventDescription"
+                android:layout_width="221dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="64dp"
+                android:hint="Beschreibung"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/eventAge"
+                android:layout_width="221dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="120dp"
+                android:hint="Mindestalter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/eventPersons"
+                android:layout_width="221dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="172dp"
+                android:hint="Personenanzahl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/eventPrice"
+                android:layout_width="221dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="220dp"
+                android:hint="Preis pro Ticket"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/eventLocation"
+                android:layout_width="221dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="84dp"
+                android:layout_marginTop="272dp"
+                android:hint="Ort der Veranstaltung"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="22dp"
+                android:text="Description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="37dp"
+                android:text="Mindestalter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="13dp"
+                android:text="Personen (ca.)"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventAge" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="31dp"
+                android:text="Preis"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="33dp"
+                android:text="Location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <TextView
+                android:id="@+id/location2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="72dp"
+                android:text="Art der Veranstaltung"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="35dp"
+                android:text="Topic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/spinnerEventKind"
+                android:layout_width="182dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="161dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginBottom="322dp"
+                android:entries="@array/eventkind"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventLocation"
+                app:layout_constraintVertical_bias="0.285" />
+
+            <Button
+                android:id="@+id/eventCreateSubmit"
+                android:layout_width="167dp"
+                android:layout_height="92dp"
+                android:layout_marginStart="131dp"
+                android:layout_marginBottom="218dp"
+                android:text="Erstellen"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/eventCancel"
+                android:layout_width="167dp"
+                android:layout_height="92dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

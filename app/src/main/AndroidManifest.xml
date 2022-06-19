@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
+            android:name=".Dialog.EventEdit"
+            android:exported="false" />
+        <activity
+            android:name=".Dialog.EventCreate"
+            android:exported="false" />
+        <activity
             android:name=".Activities.StartActivity"
             android:exported="false" />
         <activity
@@ -25,7 +31,7 @@
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
