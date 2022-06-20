@@ -3,6 +3,7 @@ package net.ruphyy.eventagercreator.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ActivityNotFoundException;
@@ -18,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import net.ruphyy.eventagercreator.Database.DbManager;
 import net.ruphyy.eventagercreator.Dialog.EventCreate;
+import net.ruphyy.eventagercreator.MyAdapter;
 import net.ruphyy.eventagercreator.R;
 
 // Note: String-Array in Arrays kein "'"!
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private String s1[], s2[];
     // Vorgefertigte Bilder (Party, Festival, Event)
-    private int[] images = {R.drawable.p,R.drawable.f,R.drawable.e};
+    private int[] images = {R.drawable.p,R.drawable.f,R.drawable.e,R.drawable.e};
     private BottomNavigationView navigationView;
     private ConstraintLayout homepage;
 
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.bottom_navigation);
         createEvent = findViewById(R.id.createEvent);
         createEventDialog = findViewById(R.id.createEventDialog);
-        s1 = getResources().getStringArray(R.array.events);
+        s1 = getResources().getStringArray(R.array.events1);
         s2 = getResources().getStringArray(R.array.dates);
 
         // Verstecke Settings Card damit man die Buttons im "Hintergrund" nicht klicken kann
@@ -111,15 +113,15 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setVisibility(View.GONE);
             emptyView.setVisibility(View.VISIBLE);
         } else {
-            for(int x = 0; userEvents > x; x++) {
-
-            }
+            MyAdapter ma = new MyAdapter(this, s1, s2, images);
+            recyclerView.setAdapter(ma);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
         }
-
+        navigationView.setVisibility(View.GONE);
         // Navigationsleiste
-        navigationView.setOnNavigationItemSelectedListener
+        /*navigationView.setOnNavigationItemSelectedListener
                 ((BottomNavigationView.OnNavigationItemSelectedListener) item -> {
                     switch (item.getItemId()) {
                         case R.id.viewHome:
@@ -132,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
                     return false;
-                });
+                }); */
     }
 
     public void test() {

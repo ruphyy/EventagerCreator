@@ -79,7 +79,7 @@ public class DbManager {
 
     public static int getEventCount(int userid) {
         // Anzahl an Events vom Creator anzeigen, wenn keine erstellt, dann 0 zurückgeben
-        return 0;
+        return 4;
     }
 
 
