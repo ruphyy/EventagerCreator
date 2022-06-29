@@ -11,7 +11,7 @@
         android:id="@+id/createEventDialog"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="#364368"
+        android:backgroundTint="#26304C"
         app:barrierMargin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -20,12 +20,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <View
+                android:id="@+id/firstTopicView"
+                android:layout_width="4dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/cornerviews"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/eventTopic"
                 android:layout_width="221dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="96dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="68dp"
                 android:hint="Überschrift"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -34,8 +45,8 @@
                 android:id="@+id/eventDescription"
                 android:layout_width="221dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="96dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="116dp"
                 android:hint="Beschreibung"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -44,8 +55,8 @@
                 android:id="@+id/eventAge"
                 android:layout_width="221dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="96dp"
-                android:layout_marginTop="120dp"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="164dp"
                 android:hint="Mindestalter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -55,7 +66,7 @@
                 android:layout_width="221dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="112dp"
-                android:layout_marginTop="172dp"
+                android:layout_marginTop="212dp"
                 android:hint="Personenanzahl"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -64,8 +75,8 @@
                 android:id="@+id/eventPrice"
                 android:layout_width="221dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="220dp"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="260dp"
                 android:hint="Preis pro Ticket"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -74,8 +85,8 @@
                 android:id="@+id/eventLocation"
                 android:layout_width="221dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="84dp"
-                android:layout_marginTop="272dp"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="308dp"
                 android:hint="Ort der Veranstaltung"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -84,8 +95,8 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
                 android:text="Description"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -94,8 +105,8 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="37dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
                 android:text="Mindestalter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -104,8 +115,8 @@
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="13dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
                 android:text="Personen (ca.)"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eventAge" />
@@ -114,8 +125,8 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="31dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
                 android:text="Preis"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -124,8 +135,8 @@
                 android:id="@+id/location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
                 android:text="Location"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -135,7 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="72dp"
+                android:layout_marginTop="40dp"
                 android:text="Art der Veranstaltung"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
@@ -144,8 +155,8 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="76dp"
                 android:text="Topic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -161,17 +172,18 @@
                 android:entries="@array/eventkind"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eventLocation"
-                app:layout_constraintVertical_bias="0.285" />
+                app:layout_constraintVertical_bias="0.379" />
 
             <Button
                 android:id="@+id/eventCreateSubmit"
                 android:layout_width="167dp"
                 android:layout_height="92dp"
-                android:layout_marginStart="131dp"
-                android:layout_marginBottom="218dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginBottom="168dp"
+                android:backgroundTint="#1CDD69"
                 android:text="Erstellen"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -180,10 +192,25 @@
                 android:id="@+id/eventCancel"
                 android:layout_width="167dp"
                 android:layout_height="92dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginBottom="80dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginBottom="60dp"
+                android:backgroundTint="#B85050"
+                android:text="Zurück"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/settings3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Event erstellen"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

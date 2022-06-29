@@ -19,47 +19,37 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import net.ruphyy.eventagercreator.Database.DbManager;
 import net.ruphyy.eventagercreator.Dialog.EventCreate;
+import net.ruphyy.eventagercreator.Events;
 import net.ruphyy.eventagercreator.MyAdapter;
 import net.ruphyy.eventagercreator.R;
 
-// Note: String-Array in Arrays kein "'"!
-    // TODO: Mehr Abstand zwischen Überschrift "erstellte Events" und "NoEvent-Error" (mehr zentriert)
-    // TODO: Datenbankverknüpfung und Abruf der Daten
     // TODO: NavigationBar state_selected Farben ändern
 
 public class MainActivity extends AppCompatActivity {
 
-    public static int getUserid() {
-        return userid;
-    }
+    private static String strUsername;
+    private static int usrID;
+    public static String test;
+    private int usrLevel;
+    private static String eventcount;
 
-    public static void setUserid(int userid) {
-        MainActivity.userid = userid;
-    }
-
-    // Publike User-ID (von überall abrufbar per Getter)
-    private static int userid;
-
-    private TextView emptyView, contactSupport;
+    private TextView emptyView, contactSupport, textUsername;
     private CardView homeView, settingsView, createEventDialog;
     private Button createEvent;
     private RecyclerView recyclerView;
-    private String s1[], s2[];
-    // Vorgefertigte Bilder (Party, Festival, Event)
-    private int[] images = {R.drawable.p,R.drawable.f,R.drawable.e,R.drawable.e};
-    private BottomNavigationView navigationView;
-    private ConstraintLayout homepage;
+    private String[] s1, s2;
 
-    private int eventcount = 15;
+    // Vorgefertigte Bilder (Party, Festival, Event)
+    private final int[] images = {R.drawable.p,R.drawable.f,R.drawable.e};
+    private BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         // Find ViewId's
+        textUsername = findViewById(R.id.usernameView);
         recyclerView = findViewById(R.id.creatorEvents);
         emptyView = findViewById(R.id.emptyView);
         homeView = findViewById(R.id.homeView);
@@ -68,8 +58,11 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.bottom_navigation);
         createEvent = findViewById(R.id.createEvent);
         createEventDialog = findViewById(R.id.createEventDialog);
-        s1 = getResources().getStringArray(R.array.events1);
+        s1 = getResources().getStringArray(R.array.events);
         s2 = getResources().getStringArray(R.array.dates);
+
+        //Setze Username Text
+        textUsername.setText(strUsername + ",");
 
         // Verstecke Settings Card damit man die Buttons im "Hintergrund" nicht klicken kann
         settingsView.setVisibility(View.GONE);
@@ -106,23 +99,26 @@ public class MainActivity extends AppCompatActivity {
          */
 
         // Anzahl an erstellten Events abrufen
-        int userEvents = DbManager.getEventCount(userid);
+        int userEvents = 0;
+
+        s1 = getResources().getStringArray(R.array.events);
+        s2 = getResources().getStringArray(R.array.dates);
+        MyAdapter ma = new MyAdapter(this, s1, s2, images);
+        recyclerView.setAdapter(ma);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
         if (userEvents == 0) {
             recyclerView.setVisibility(View.GONE);
             emptyView.setVisibility(View.VISIBLE);
         } else {
-            MyAdapter ma = new MyAdapter(this, s1, s2, images);
-            recyclerView.setAdapter(ma);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
         }
-        navigationView.setVisibility(View.GONE);
+
         // Navigationsleiste
-        /*navigationView.setOnNavigationItemSelectedListener
-                ((BottomNavigationView.OnNavigationItemSelectedListener) item -> {
+        navigationView.setOnNavigationItemSelectedListener
+                (item -> {
                     switch (item.getItemId()) {
                         case R.id.viewHome:
                             homeView.setVisibility(View.VISIBLE);
@@ -134,15 +130,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
                     return false;
-                }); */
-    }
-
-    public void test() {
-        Events[] event = new Events[eventcount];
-
-        for(int x = 0; x>eventcount; x++) {
-            event[x] = new Events("", "", 12, 22,"", 'P');
-        }
+                });
     }
 
     // Für prozentualen Anteil von Followern
@@ -158,4 +146,33 @@ public class MainActivity extends AppCompatActivity {
 
         return result;
     }
+
+    // Getter und Setter
+    public String getUsername() {
+        return strUsername;
+    }
+
+    public static void setUsername(String username) {
+        strUsername = username;
+    }
+
+    public int getUserid() {
+        return usrID;
+    }
+
+    public static void setUserid(int userid) {
+        usrID = userid;
+    }
+
+    public int getLevel() {
+        return usrLevel;
+    }
+
+    public void setLevel(int level) {
+        usrLevel = level;
+    }
+
+    public String getEventCount() { return eventcount; }
+
+    public static void setEventCount(String eventcount) { MainActivity.eventcount = eventcount; }
 }

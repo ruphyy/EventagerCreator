@@ -30,12 +30,11 @@ import java.util.logging.Logger;
 public class StartActivity extends AppCompatActivity {
 
     private EditText textUsername, textPassword;
-    private String password, username;
-    public static int userid; // TODO: Variable befüllen :)
     private Button submitBtn;
 
     // Variables for Login-Cooldown
     private static MessageDigest md;
+    private int i = 0;
     long time = System.currentTimeMillis();
     long lastTry = 0;
     long coolDownTime = 3000;
@@ -45,20 +44,26 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        password = username = "";
         textUsername = findViewById(R.id.editUsername);
         textPassword = findViewById(R.id.editPassword);
         submitBtn = findViewById(R.id.submitLogin);
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { DbManager.login(StartActivity.this, textUsername, textPassword); }
-        });
-    }
+            public void onClick(View view) {
+                if(i <= 3) {
+                    DbManager.login(StartActivity.this, textUsername, textPassword);
+                    i++;
+                } else {
+                    if(cooldown()) {
+                        DbManager.login(StartActivity.this, textUsername, textPassword);
+                    } else {
+                        Toast.makeText(StartActivity.this, "Calm down! It's wrong!", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-    public void forwardMain() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+            }
+        });
     }
 
     public boolean cooldown() {

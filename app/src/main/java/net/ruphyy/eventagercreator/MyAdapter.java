@@ -20,11 +20,11 @@ import net.ruphyy.eventagercreator.Dialog.EventEdit;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    String s1[], s2[];
-    int images[];
+    String[] s1, s2;
+    int[] images;
     Context context;
 
-    public MyAdapter(Context context, String s1[], String s2[], int images[] ){
+    public MyAdapter(Context context, String[] s1, String[] s2, int[] images){
         this.context = context;
         this.s1 = s1;
         this.s2 = s2;
@@ -59,7 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                                 // START THE GAME!
                             }
                         })
-                        .setNegativeButton("CancelAmk", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // User cancelled the dialog
                             }

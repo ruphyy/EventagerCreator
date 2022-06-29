@@ -58,13 +58,19 @@ public class EventCreate extends AppCompatActivity {
                 eventPersons = getEventPersons.getText().toString();
                 eventLocation = getEventLocation.getText().toString();
                 eventKind = getEventKind.getSelectedItem().toString();
-
-                // Alle benötigten Daten an DbManager übertragen und in MySQL eintragen lassen.
-                if(eventTopic.isEmpty() || eventDescription.isEmpty() || eventAge.isEmpty() || eventPrice.isEmpty() || eventPersons.isEmpty() || eventLocation.isEmpty() || eventKind.isEmpty()) {
-                    DbManager.eventCreate(EventCreate.this, eventTopic, eventDescription, eventAge, eventPrice, eventPersons, eventLocation, eventKind);
-                } else {
-                    Toast.makeText(EventCreate.this, "Fülle bitte alle Felder mit korrekten Daten aus!", Toast.LENGTH_SHORT).show();
+                if(eventKind.equals("Party")) {
+                    eventKind = "p";
+                }else if(eventKind.equals("Festival")) {
+                    eventKind = "f";
+                }else if(eventKind.equals("Event")) {
+                    eventKind = "e";
                 }
+                // Alle benötigten Daten an DbManager übertragen und in MySQL eintragen lassen.
+                //if(eventTopic.isEmpty() || eventDescription.isEmpty() || eventAge.isEmpty() || eventPrice.isEmpty() || eventPersons.isEmpty() || eventLocation.isEmpty() || eventKind.isEmpty()) {
+                    DbManager.eventCreate(EventCreate.this, eventTopic, eventDescription, eventAge, eventPrice, eventPersons, eventLocation, eventKind);
+                //} else {
+                    //Toast.makeText(EventCreate.this, "Fülle bitte alle Felder mit korrekten Daten aus!", Toast.LENGTH_SHORT).show();
+                //}
             }
         });
 

@@ -22,6 +22,108 @@
             android:background="#26304C">
 
             <TextView
+                android:id="@+id/textMail"
+                android:layout_width="190dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:text="admin@ruphyy.de"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.407"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textUsername" />
+
+            <View
+                android:id="@+id/firtTopicView3"
+                android:layout_width="4dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="184dp"
+                android:background="@drawable/cornerviews"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textUsername"
+                android:layout_width="190dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:text="ruphyy"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.407"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textFullname" />
+
+            <TextView
+                android:id="@+id/settings_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="184dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Profil"
+                android:textColor="#FFFFFF"
+                android:textSize="26dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textFullname"
+                android:layout_width="190dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="32dp"
+                android:text="André C."
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.407"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/settings_text" />
+
+            <Button
+                android:id="@+id/deleteAccount"
+                android:layout_width="124dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="82dp"
+                android:backgroundTint="#EC5353"
+                android:text="Account löschen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.794"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/firtTopicView4"
+                android:layout_width="4dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/cornerviews"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/changePw"
+                android:layout_width="124dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/corner"
+                android:text="Passwort ändern"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.198"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:id="@+id/settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,27 +186,57 @@
                 android:id="@+id/contactSupport"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
-                android:layout_marginTop="572dp"
+                android:layout_marginTop="8dp"
                 android:text="Kontakt aufnehmen"
                 android:textAlignment="textStart"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.063"
+                app:layout_constraintHorizontal_bias="0.059"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/question" />
 
             <TextView
                 android:id="@+id/question"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
-                android:layout_marginTop="536dp"
-                android:text="Hier soll eine Frage hin?"
+                android:layout_marginTop="8dp"
+                android:text="Wie werde ich hochgestuft?"
                 android:textAlignment="textStart"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.075"
+                app:layout_constraintHorizontal_bias="0.085"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/infoLevel" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="40dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/settings_text"
+                app:srcCompat="@drawable/ic_person" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                app:srcCompat="@android:drawable/ic_dialog_info" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                app:srcCompat="@android:drawable/ic_dialog_email" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -129,6 +261,7 @@
         android:id="@+id/homeView"
         android:layout_width="412dp"
         android:layout_height="728dp"
+        android:visibility="gone"
         app:cardBackgroundColor="#26304C"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"

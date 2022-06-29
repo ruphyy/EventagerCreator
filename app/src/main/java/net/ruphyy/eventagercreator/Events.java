@@ -1,4 +1,4 @@
-package net.ruphyy.eventagercreator.Activities;
+package net.ruphyy.eventagercreator;
 
 public class Events {
     private String aTopic;
